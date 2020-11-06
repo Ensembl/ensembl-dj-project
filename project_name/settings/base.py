@@ -25,18 +25,17 @@ from pathlib import Path
 import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 env = environ.Env()
-env.read_env(str(BASE_DIR.path(".env")))
+env.read_env(str(Path.joinpath(BASE_DIR, '.env')))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env.str('SECRET_KEY', '{{ secret_key }}')
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DEBUG')
+
 
 ALLOWED_HOSTS = []
 
@@ -87,7 +86,7 @@ WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': env.db(default='sqlite:///' + BASE_DIR + '/{{ project_name }}.sqlite3'),
+    'default': env.db(default='sqlite:///' + str(BASE_DIR) + '/{{ project_name }}.sqlite3'),
 }
 
 # Password validation
@@ -122,5 +121,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATIC_URL = '/static/'
+# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DJANGO_DEBUG', False)
+
 ADMIN_URL = env.str('ADMIN_URL', 'admin')

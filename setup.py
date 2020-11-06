@@ -22,15 +22,14 @@ def import_requirements():
 
 
 setup(
-    name='ebi-ols-client',
+    name='{{ project_name }}',
     version=version,
-    description='Ensembl {{ project_name }} Django app',
+    description='Ensembl {{ project_name }}',
     long_description=readme,
     long_description_content_type="text/markdown",
     author='',
-    author_email='mchakiachvili@ebi.ac.uk',
     url='https://github.com/Ensembl/ols-client',
-    license=license_ct,
+    license='Apache version 2.0',
     packages=find_packages(exclude=('tests', 'docs')),
     install_requires=import_requirements(),
     classifiers=[
@@ -40,6 +39,7 @@ setup(
         "License :: OSI Approved :: Apache Software License",
         "Natural Language :: English",
         "Programming Language :: Python :: 3.6",
+        "Framework :: Django :: 3.1",
         "Topic :: Scientific/Engineering :: Bio-Informatics",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
