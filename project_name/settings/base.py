@@ -28,13 +28,14 @@ import environ
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 env = environ.Env()
-env.read_env(str(Path.joinpath(BASE_DIR, '.env')))
+
+env.read_env(os.getenv("DJANGO_ENV_FILE", str(Path.joinpath(BASE_DIR, '.env'))))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env.str('SECRET_KEY', '{{ secret_key }}')
+SECRET_KEY = env.str('SECRET_KEY', '!$hfny5#0soe435!a)fhmv!egr)*8p*lkpv$^&e#=yxt&yd-wc')
 
 
 ALLOWED_HOSTS = []
