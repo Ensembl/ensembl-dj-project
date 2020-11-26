@@ -9,7 +9,7 @@ Quick start
 1. Create a project
 
 ```shell script
-django-admin startproject --template=https://github.com/marcoooo/ensembl-dj-project/archive/main.zip --extension=py,env,example [your_project_name]
+django-admin startproject --template=https://github.com/ensembl/ensembl-dj-project/archive/main.zip --extension=py,env,example [your_project_name]
 
 cd your_project_name
 mv .env.example .env
@@ -27,7 +27,7 @@ pip install -r requirements.txt
     
     ```shell script
     cd your_project_name # if not already in project dir from previous step
-    django-admin startapp --template=https://github.com/marcoooo/ensembl-dj-app/archive/main.zip [your_app_name]
+    django-admin startapp --template=https://github.com/ensembl/ensembl-dj-app/archive/main.zip [your_app_name]
 
     ```
 
